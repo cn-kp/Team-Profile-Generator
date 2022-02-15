@@ -1,4 +1,4 @@
-const generateHTML = require("./src/generateHTML");
+const generateHTMLCards = require("./src/generateHTML");
 const fs = require("fs");
 const inquirer = require("inquirer");
 
@@ -43,14 +43,14 @@ const questions = [
   },
   {
     type: "input",
-    name: "school",
+    name: "room",
     message: "What is the Manager's office number?",
     when: (input) => input.role === "Manager",
   },
   {
     type: "confirm",
     name: "addEmployee",
-    message: "Do you want to add more employee?",
+    message: "Do you want to add more employee/s?",
     default: false,
   },
 ];
@@ -68,17 +68,31 @@ function writeToFile(fileName, data) {
 }
 
 async function init() {
-  await inquirer.prompt(questions).then((userInput) => {
-    team.push(userInput);
-    console.log(team);
-    if (userInput.addEmployee == true) {
-      inquirer.prompt(questions).then((userInput) => {
-        team.push(userInput);
-      });
+  let addEmployee = true;
+  
+  while (addEmployee) {
+    const userInput = await inquirer.prompt(questions);
+    switch(userInput.role) {
+      case "Engineer":
+        response = new engineer(userInput.name,userInput.email,userInput.id,userInput.github);
+        team.push(response);
+        break;
+      case "Intern":
+        response = new intern(userInput.name,userInput.email,userInput.id,userInput.school);
+        team.push(response);
+        break
+      case "Manager":
+        response = new manager(userInput.name,userInput.email,userInput.id,userInput.room);
+        team.push(response);
+        break
     }
+    // team.push(userInput);
     console.log(team);
-    writeToFile(`./dist/team-cards.html`, generateHTML(team));
-  });
+    addEmployee = userInput.addEmployee;
+  }
+
+  writeToFile(`./dist/team-cards.html`, generateHTMLCards(team))
+  
 }
 
 init();
