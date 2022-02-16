@@ -2,7 +2,7 @@
 
 ## Deployment
 * [GitHub Repository](https://github.com/cn-kp/Team-Profile-Generator)
-* [Example of Generated HTML](git@github.com:cn-kp/Team-Profile-Generator.git) 
+* [Example of Generated HTML](https://git@github.com:cn-kp/Team-Profile-Generator.git) 
 
 
 ## Description
