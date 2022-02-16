@@ -2,8 +2,8 @@
 
 ## Deployment
 * [GitHub Repository](https://github.com/cn-kp/Team-Profile-Generator)
-* [Example of Generated HTML](https://github.com/cn-kp/homework8-readme-generator/blob/main/generatedREADME.md) 
-<!-- change link to above -->
+* [Example of Generated HTML](git@github.com:cn-kp/Team-Profile-Generator.git) 
+
 
 ## Description
 
