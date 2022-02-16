@@ -2,8 +2,8 @@ const engineer = require("../lib/engineer");
 const intern = require("../lib/intern");
 const manager = require("../lib/manager");
 
+// creating the final template of the html page
 function generateHTML(data) {
-  // for (let i = 0; i < data.length; i++) {
 
   return `
 <!DOCTYPE html>
@@ -16,12 +16,7 @@ function generateHTML(data) {
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
+    <script src="https://kit.fontawesome.com/4f24a0e7d7.js" crossorigin="anonymous"></script>
     <title>Team Profile Generator</title>
 </head>
     
@@ -30,14 +25,16 @@ function generateHTML(data) {
         <h1 style="text-align: center;line-height:100px">My Team</h1>
     </div>
 
+    <div style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
     ${data}
-
+    </div>
 </body>
 </html>
     
   `;
 }
 
+// filtering through the data from the query and creating the card based on the role
 var teamCards = [];
 function generateHTMLCards(data) {
   console.log(data);
@@ -83,7 +80,7 @@ function generateHTMLCards(data) {
                         <div class="card-body">
                             <div style="background-color: rgb(41, 159, 214)">
                             <h5 class="card-title">Intern</h5>
-                            <i class="fa-solid fa-user-graduate"></i> ${Intern.getName()}</i>
+                            <i class="fa-solid fa-user-graduate"> ${Intern.getName()}</i>
                             </div>
                 
                             <div class="card" style="width: 19.4rem">
@@ -111,7 +108,7 @@ function generateHTMLCards(data) {
                         <div class="card-body">
                             <div style="background-color: rgb(41, 159, 214)">
                             <h5 class="card-title">Manager</h5>
-                            <i class="fa-solid fa-cup-togo"></i> ${Manager.getName()}</i>
+                            <i class="fa-solid fa-cup-togo"> ${Manager.getName()}</i>
                             </div>
                 
                             <div class="card" style="width: 19.4rem">
@@ -126,7 +123,8 @@ function generateHTMLCards(data) {
                         </div>
                     </div>`;
         teamCards.push(response);
-        // generateHTML(teamCards);
+        // pushing the array cards into the html function and separating each element to 
+        ;// ensure that it is displayed properly
         break;
     }
   }

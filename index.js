@@ -7,6 +7,7 @@ const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
 
+// creating the question bank and using "when" to display certain questions
 const questions = [
   {
     type: "list",
@@ -56,7 +57,7 @@ const questions = [
 ];
 
 var team = [];
-
+// this is writing the actual html file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
@@ -66,7 +67,7 @@ function writeToFile(fileName, data) {
     }
   });
 }
-
+// creating the class specific objects based on the user's input
 async function init() {
   let addEmployee = true;
   

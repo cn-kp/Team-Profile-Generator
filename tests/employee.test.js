@@ -27,7 +27,7 @@ describe("testing employee object",() => {
     })
     describe("checking the getRole property", () => {
         it("should call the getRole from employee.js",() => {
-            expect(employee.getRole()).toBe('employee');
+            expect(employee.getRole()).toBe('Employee');
         })
     })
 })
